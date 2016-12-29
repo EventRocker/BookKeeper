@@ -1,0 +1,42 @@
+databaseChangeLog:
+    - changeSet:
+        id: 001
+        author: P
+        logicalFilePath: 'create_bookings_table'
+        changes:
+            - createTable:
+                tableName: bookings
+                columns:
+                    - column:
+                        name: id
+                        type: bigint
+                        autoIncrement: true
+                        constraints:
+                          primaryKey: true
+                          nullable: false
+                    - column:
+                        name: reference
+                        type: varchar(10)
+                    - column:
+                        name: username
+                        type: varchar(255)
+                        name: event_name
+                        type: varchar(64)
+                    - column:
+                        name: event_description
+                        type: varchar(255)
+                    - column:
+                        name: event_place
+                        type: varchar(255)
+                    - column:
+                        name: event_start_time
+                        type: time
+                    - column:
+                        name: event_end_time
+                        type: time
+                    - column:
+                        name: seat_name
+                        type: varchar(64)
+                    - column:
+                        name: seat_price
+                        type: decimal
