@@ -2,6 +2,14 @@ sudo: required
 language: java
 jdk:
 - oraclejdk8
+services:
+- docker
 script:
 - "./gradlew check"
 - "./gradlew assemble"
+- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- "./gradlew buildDocker"
+after_success:
+- docker login --username="$HEROKU_EMAIL" --password="$HEROKU_PASSWORD" registry.heroku.com
+- docker tag eventrock/bookkeeper registry.heroku.com/event-rock-bookkeeper/web
+- docker push registry.heroku.com/event-rock-bookkeeper/web
