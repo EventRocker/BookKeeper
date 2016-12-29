@@ -62,13 +62,13 @@ liquibase {
 
             if (project.hasProperty('h2')) {
 
-                url 'jdbc:h2:file:./build/h2db/db/eventrock;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE'
+                url 'jdbc:h2:file:./build/h2db/db/bookkeeper;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE'
                 username 'sa'
                 password ''
                 driver 'org.h2.Driver'
 
             } else {
-                url 'jdbc:mysql://localhost:3306/eventrock?nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true&serverTimezone=Asia/Bangkok&useTimezone=true'
+                url 'jdbc:mysql://localhost:3306/bookkeeper?nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true&serverTimezone=Asia/Bangkok&useTimezone=true'
                 username 'eventrock'
                 password 'mysecretpassword'
                 driver 'com.mysql.cj.jdbc.Driver'

@@ -1,0 +1,11 @@
+security:
+    ignored: =/**
+    basic:
+      enable: false
+
+spring:
+    datasource:
+        username: eventrock
+        password: mysecretpassword
+        url: jdbc:mysql://localhost:3306/bookkeeper?nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true&serverTimezone=Asia/Bangkok&useTimezone=true
+        driverClassName: com.mysql.cj.jdbc.Driver
