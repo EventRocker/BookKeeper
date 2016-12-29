@@ -4,6 +4,7 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -57,13 +58,13 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-// This is used as the docker image prefix (org)
 group = 'bookkeeper'
 
 task buildDocker(type: Docker, dependsOn: build) {
     push = true
     applicationName = jar.baseName
     dockerfile = file('src/main/docker/Dockerfile')
+    tag = "eventrock/${applicationName}"
     doFirst {
         copy {
             from jar
