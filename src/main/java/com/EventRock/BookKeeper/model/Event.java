@@ -1,28 +1,32 @@
 package com.EventRock.BookKeeper.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.time.LocalTime;
+import javax.validation.constraints.NotNull;
 
 @Embeddable
 public class Event {
 
+    @NotNull
+    @Column(name = "event_id")
+    private Long id;
+
     @Column(length = 64, name = "event_name")
     private String name;
 
-    @Column(length = 255, name = "event_description")
-    private String description;
+    public String getName() {
+        return name;
+    }
 
-    @Column(length = 255, name = "event_place")
-    private String place;
+    public Long getId() {
+        return id;
+    }
 
-    @DateTimeFormat(pattern = "HH:mm")
-    @Column(name = "event_start_time")
-    private LocalTime startTime;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    @DateTimeFormat(pattern = "HH:mm")
-    @Column(name = "event_end_time")
-    private LocalTime endTime;
+    public void setName(String name) {
+        this.name = name;
+    }
 }

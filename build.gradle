@@ -22,6 +22,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'docker'
+apply plugin: 'idea'
 
 jar {
     baseName = 'bookkeeper'
@@ -50,12 +51,14 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.data:spring-data-jpa:1.10.6.RELEASE')
+    compile("org.springframework.boot:spring-boot-starter-hateoas")
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.17'
     compile group: 'org.liquibase', name: 'liquibase-core'
     compile 'mysql:mysql-connector-java:6.0.4'
     compile('org.hibernate:hibernate-java8')
     compile("com.h2database:h2")
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("com.jayway.jsonpath:json-path")
 }
 
 group = 'bookkeeper'

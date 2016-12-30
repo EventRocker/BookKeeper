@@ -1,0 +1,27 @@
+databaseChangeLog:
+    - changeSet:
+        id: 001
+        author: P
+        logicalFilePath: 'add_event_id_to_booking_table'
+        changes:
+            - dropColumn:
+                columnName: event_description
+                tableName: bookings
+            - dropColumn:
+                columnName: event_place
+                tableName: bookings
+            - dropColumn:
+                columnName: event_start_time
+                tableName: bookings
+            - dropColumn:
+                columnName: event_end_time
+                tableName: bookings
+            - addColumn:
+                columns:
+                 - column:
+                     name: event_id
+                     type: bigint
+                 - column:
+                     name: seat_id
+                     type: bigint
+                tableName: bookings
