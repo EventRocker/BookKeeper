@@ -29,4 +29,23 @@ public class Event {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Event)) return false;
+
+        Event event = (Event) o;
+
+        if (getId() != null ? !getId().equals(event.getId()) : event.getId() != null) return false;
+        return getName() != null ? getName().equals(event.getName()) : event.getName() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        return result;
+    }
 }
